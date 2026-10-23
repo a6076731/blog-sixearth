@@ -1,5 +1,5 @@
 baseURL = "https://sixearth.cn/"
-title = "地球六号"
+title = "Six Earth"
 theme = "PaperMod"
 
 locale = "zh-cn"
@@ -27,9 +27,9 @@ buildFuture = false
 
 [params]
   env = "production"
-  description = "明的个人博客"
-  author = "明"
-  DateFormat = "2006-01-02"
+  description = "Six Earth的个人博客"
+  author = "Six Earth"
+  DateFormat = "2026-10-23"
   defaultTheme = "auto"
   ShowReadingTime = true
   ShowShareButtons = false
@@ -43,7 +43,7 @@ buildFuture = false
   TocOpen = false
 
   [params.homeInfoParams]
-    Title = "你好，我是明"
+    Title = "你好，我是Six Earth"
     Content = "这里记录一些想法、折腾和日常。"
 
   [[params.socialIcons]]
