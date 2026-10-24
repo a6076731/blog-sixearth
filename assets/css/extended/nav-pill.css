@@ -64,10 +64,13 @@
     position: relative;
 }
 
+/* 下拉框贴着「博客」左边缘展开，并且让菜单文字与「博客」二字左对齐：
+   菜单内边距 6px + 链接左内边距 10px = 触发器的 16px，文字起点才严格重合。 */
 .ss-menu {
     position: absolute;
     top: calc(100% + 8px);
-    right: 0;
+    left: 0;
+    right: auto;
     z-index: 20;
     min-width: 148px;
     margin: 0;
@@ -98,7 +101,7 @@
 
 .site-switch .ss-menu a {
     display: block;
-    padding: 8px 14px;
+    padding: 8px 14px 8px 10px;
     border-radius: 9px;
     color: var(--secondary);
     font-size: 13px;
@@ -123,7 +126,8 @@
         letter-spacing: .02em;
     }
 
+    /* 菜单跟着「博客」左移展开，窄屏下再收窄一点，避免超出右边界 */
     .ss-menu {
-        min-width: 132px;
+        min-width: 120px;
     }
 }
