@@ -48,7 +48,7 @@ buildFuture = false
 
   [[params.socialIcons]]
     name = "github"
-    url = "https://github.com/"
+    url = "https://github.com/a6076731"
   [[params.socialIcons]]
     name = "rss"
     url = "/index.xml"
