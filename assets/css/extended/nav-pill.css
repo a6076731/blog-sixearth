@@ -1,53 +1,129 @@
-/* 顶部导航改成胶囊样式，与首页保持一致
-   只在桌面端生效；移动端保持 PaperMod 的折叠菜单不动，避免把小屏导航搞坏 */
+/* 三站统一导航：胶囊 + 「博客」下拉
+   与首页、相册页共用同一套形状、内边距与字号，配色取主题变量以适配明暗。
+   选择器统一带 .site-switch 前缀，是为了压过主题里 `.header-nav a{display:block}` 的优先级。 */
 
-@media (min-width: 769px) {
-    .header-nav {
-        align-items: center;
+.header-nav {
+    align-items: center;
+}
+
+.site-switch {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--entry);
+    line-height: 1.25;
+}
+
+.site-switch .ss-link,
+.site-switch .ss-trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 16px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--secondary);
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.25;
+    letter-spacing: .06em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+}
+
+.site-switch .ss-link:hover,
+.site-switch .ss-trigger:hover,
+.site-switch .ss-link.is-current,
+.site-switch .ss-trigger.is-current {
+    background: var(--tertiary);
+    color: var(--primary);
+}
+
+/* 下拉箭头：两条边框拼一个 V，展开时翻转 */
+.ss-caret {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-right: 1.2px solid currentColor;
+    border-bottom: 1.2px solid currentColor;
+    transform: rotate(45deg) translate(-1px, -1px);
+    opacity: .65;
+    transition: transform .2s ease;
+}
+
+.ss-drop.is-open .ss-caret {
+    transform: rotate(-135deg) translate(-2px, -2px);
+}
+
+.ss-drop {
+    position: relative;
+}
+
+.ss-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 20;
+    min-width: 148px;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--entry);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .14);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity .18s ease, transform .18s ease, visibility .18s;
+}
+
+.ss-drop:hover .ss-menu,
+.ss-drop:focus-within .ss-menu,
+.ss-drop.is-open .ss-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.ss-menu li {
+    display: block;
+    margin: 0;
+}
+
+.site-switch .ss-menu a {
+    display: block;
+    padding: 8px 14px;
+    border-radius: 9px;
+    color: var(--secondary);
+    font-size: 13px;
+    line-height: 1.3;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background .18s ease, color .18s ease;
+}
+
+.site-switch .ss-menu a:hover,
+.site-switch .ss-menu a.active {
+    background: var(--tertiary);
+    color: var(--primary);
+}
+
+/* 小屏：三个入口挤一行会溢出，收小内边距 */
+@media (max-width: 768px) {
+    .site-switch .ss-link,
+    .site-switch .ss-trigger {
+        padding: 6px 11px;
+        font-size: 12.5px;
+        letter-spacing: .02em;
     }
 
-    #menu.menu {
-        align-items: center;
-        gap: 4px;
-        column-gap: 4px;
-        padding: 4px;
-        border: 1px solid var(--border);
-        border-radius: 999px;
-        background: var(--entry);
-        overflow: visible;
-        line-height: 1.25;
-    }
-
-    #menu.menu li {
-        display: flex;
-    }
-
-    #menu.menu a {
-        display: flex;
-        align-items: center;
-        gap: 2px;
-        padding: 7px 16px;
-        border-radius: 999px;
-        font-size: 13px;
-        line-height: 1.25;
-        color: var(--secondary);
-        background: transparent;
-        transition: background 0.2s ease, color 0.2s ease;
-    }
-
-    #menu.menu a:hover {
-        background: var(--tertiary);
-        color: var(--primary);
-    }
-
-    /* 当前所在栏目：整块高亮成胶囊，不靠下划线 */
-    #menu.menu a:has(.active) {
-        background: var(--tertiary);
-        color: var(--primary);
-    }
-
-    #menu.menu .active {
-        font-weight: 400;
-        text-decoration: none;
+    .ss-menu {
+        min-width: 132px;
     }
 }
