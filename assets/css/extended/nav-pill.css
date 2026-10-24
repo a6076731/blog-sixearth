@@ -130,8 +130,39 @@
     opacity: .8;
 }
 
+/* ---------- 站点标（地球六号 锁定组合） ---------- */
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.logo-link img {
+    display: block;
+    height: 26px;
+    width: auto;
+}
+
+/* 黑色标在暗色主题里反白，一张文件通吃明暗 */
+[data-theme="dark"] .logo-link img {
+    filter: invert(1);
+}
+
+/* 窄屏只留记号 */
+.logo .logo-mark {
+    display: none;
+}
+
 /* 小屏：四个入口挤一行会溢出，收小内边距，「来信」只留信封图标 */
 @media (max-width: 768px) {
+    .logo .logo-lockup {
+        display: none;
+    }
+
+    .logo .logo-mark {
+        display: block;
+        height: 22px;
+    }
+
     .site-switch .ss-link,
     .site-switch .ss-trigger {
         padding: 6px 11px;
