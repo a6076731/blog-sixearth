@@ -117,54 +117,35 @@
     color: var(--primary);
 }
 
-/* ---------- 页脚「来信」入口（三站统一） ---------- */
-.footer .mail {
-    display: inline-flex;
-    align-items: center;
+/* ---------- 导航末尾的「来信」入口（三站统一） ---------- */
+.site-switch .ss-mail {
     gap: 6px;
-    padding: 4px 11px 4px 9px;
-    vertical-align: middle;
-    font-size: 12px;
-    /* 主题里 `.footer a` 带下划线且优先级更高，这里要显式压掉 */
-    text-decoration: none;
+    padding: 7px 14px 7px 12px;
 }
 
-.mail {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 7px 15px 7px 13px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: var(--entry);
-    color: var(--secondary);
-    font-size: 12px;
-    letter-spacing: .05em;
-    text-decoration: none;
-    transition: background .2s ease, color .2s ease, border-color .2s ease;
-}
-
-.mail svg {
+.site-switch .ss-mail svg {
     width: 12px;
     height: 12px;
     flex: none;
-    opacity: .75;
+    opacity: .8;
 }
 
-.mail:hover,
-.mail:focus-visible {
-    background: var(--tertiary);
-    border-color: var(--secondary);
-    color: var(--primary);
-}
-
-/* 小屏：三个入口挤一行会溢出，收小内边距 */
+/* 小屏：四个入口挤一行会溢出，收小内边距，「来信」只留信封图标 */
 @media (max-width: 768px) {
     .site-switch .ss-link,
     .site-switch .ss-trigger {
         padding: 6px 11px;
         font-size: 12.5px;
         letter-spacing: .02em;
+    }
+
+    .site-switch .ss-mail {
+        gap: 0;
+        padding: 6px 10px;
+    }
+
+    .ss-mail-label {
+        display: none;
     }
 
     /* 菜单跟着「博客」左移展开，窄屏下再收窄一点，避免超出右边界 */
