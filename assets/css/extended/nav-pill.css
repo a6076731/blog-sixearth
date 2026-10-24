@@ -1,0 +1,53 @@
+/* 顶部导航改成胶囊样式，与首页保持一致
+   只在桌面端生效；移动端保持 PaperMod 的折叠菜单不动，避免把小屏导航搞坏 */
+
+@media (min-width: 769px) {
+    .header-nav {
+        align-items: center;
+    }
+
+    #menu.menu {
+        align-items: center;
+        gap: 4px;
+        column-gap: 4px;
+        padding: 4px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: var(--entry);
+        overflow: visible;
+        line-height: 1.25;
+    }
+
+    #menu.menu li {
+        display: flex;
+    }
+
+    #menu.menu a {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        padding: 7px 16px;
+        border-radius: 999px;
+        font-size: 13px;
+        line-height: 1.25;
+        color: var(--secondary);
+        background: transparent;
+        transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    #menu.menu a:hover {
+        background: var(--tertiary);
+        color: var(--primary);
+    }
+
+    /* 当前所在栏目：整块高亮成胶囊，不靠下划线 */
+    #menu.menu a:has(.active) {
+        background: var(--tertiary);
+        color: var(--primary);
+    }
+
+    #menu.menu .active {
+        font-weight: 400;
+        text-decoration: none;
+    }
+}
