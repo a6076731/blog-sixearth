@@ -138,13 +138,22 @@
 
 .logo-link img {
     display: block;
-    height: 26px;
+    height: 32px;
     width: auto;
+    image-rendering: pixelated;
 }
 
-/* 黑色标在暗色主题里反白，一张文件通吃明暗 */
-[data-theme="dark"] .logo-link img {
-    filter: invert(1);
+/* 像素地球是彩色的，不能整体反色；暗色主题换用白字版文件 */
+.logo-link .logo-lockup-dark {
+    display: none;
+}
+
+[data-theme="dark"] .logo-link .logo-lockup {
+    display: none;
+}
+
+[data-theme="dark"] .logo-link .logo-lockup-dark {
+    display: block;
 }
 
 /* 窄屏只留记号 */
@@ -154,13 +163,15 @@
 
 /* 小屏：四个入口挤一行会溢出，收小内边距，「来信」只留信封图标 */
 @media (max-width: 768px) {
-    .logo .logo-lockup {
+    .logo .logo-lockup,
+    .logo .logo-lockup-dark,
+    [data-theme="dark"] .logo-link .logo-lockup-dark {
         display: none;
     }
 
     .logo .logo-mark {
         display: block;
-        height: 22px;
+        height: 28px;
     }
 
     .site-switch .ss-link,

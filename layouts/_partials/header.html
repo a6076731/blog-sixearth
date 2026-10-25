@@ -3,10 +3,12 @@
         <div class="logo">
             <a class="logo-link" href="{{ "" | absLangURL }}" accesskey="h"
                 title="{{ site.Title }} (Alt + H)" aria-label="{{ site.Title }}">
-                <img class="logo-lockup" src="{{ "logo/logo-lockup.png" | absURL }}" alt="{{ site.Title }}"
-                    width="97" height="26">
-                <img class="logo-mark" src="{{ "logo/mark.png" | absURL }}" alt="{{ site.Title }}"
-                    width="24" height="26">
+                <img class="logo-lockup" src="{{ "logo/logo-lockup.png" | absURL }}?v=20261025d" alt="{{ site.Title }}"
+                    width="140" height="32">
+                <img class="logo-lockup logo-lockup-dark" src="{{ "logo/logo-lockup-dark.png" | absURL }}?v=20261025d"
+                    alt="{{ site.Title }}" width="140" height="32">
+                <img class="logo-mark" src="{{ "logo/mark.png" | absURL }}?v=20261025d" alt="{{ site.Title }}"
+                    width="28" height="28">
             </a>
             {{- if (not site.Params.disableThemeToggle) }}
             <div class="logo-switches">
