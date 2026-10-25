@@ -1,4 +1,8 @@
-{{- /* 站点图标：主题已默认输出 favicon.ico / 16 / 32 / apple-touch，这里补 SVG 与 manifest */ -}}
-<link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | absURL }}">
+{{- /* 站点图标：主题已默认输出 favicon.ico / 16 / 32 / apple-touch，这里再补一遍带版本号的引用，
+       避免浏览器长期缓存旧图标；现代浏览器优先取 SVG / PNG */ -}}
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261025f">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261025f">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261025f">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261025f">
 <link rel="manifest" href="{{ "site.webmanifest" | absURL }}">
 <meta name="theme-color" content="#16150f">
