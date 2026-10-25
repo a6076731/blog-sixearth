@@ -37,7 +37,7 @@ buildFuture = false
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
   ShowWordCount = true
-  ShowRssButtonInSectionTermList = true
+  ShowRssButtonInSectionTermList = false
   ShowFullTextinRSS = true
   ShowToc = true
   TocOpen = false
@@ -45,13 +45,6 @@ buildFuture = false
   [params.homeInfoParams]
     Title = "你好，我是Six Earth"
     Content = "这里记录一些想法、折腾和日常。"
-
-  [[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/a6076731"
-  [[params.socialIcons]]
-    name = "rss"
-    url = "/index.xml"
 
 [[menu.main]]
   name = "文章"

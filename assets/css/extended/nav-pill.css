@@ -195,3 +195,18 @@
         min-width: 120px;
     }
 }
+
+/* 首页社交图标（GitHub / RSS）已移除，主题仍会输出空容器，这里抹掉占位 */
+.home-info .social-icons:empty {
+    display: none;
+}
+
+/* 首页这条 entry-footer 只装社交图标，一起隐掉，免得留下空白间距 */
+.home-info .entry-footer {
+    display: none;
+}
+
+/* 少了一行图标，首页顶部信息块高度相应收一点，间距回到原来的感觉 */
+.home-info {
+    min-height: 260px;
+}
